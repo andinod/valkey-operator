@@ -32,6 +32,42 @@ rules:
 ## Rules for valkey.andino.io/v1alpha1, Kind: Valkey
 ##
 - apiGroups:
+  - "policy"
+  resources:
+  - poddisruptionbudgets
+  verbs:
+  - "*" 
+
+- apiGroups:
+  - "networking.k8s.io"
+  - ""
+  resources:
+  - networkpolicies
+  - configmaps
+  verbs:
+  - get
+  - list
+  - create
+  - delete
+  - patch
+  - watch
+  - update
+
+
+- apiGroups:
+  - "apps"
+  resources:
+  - statefulsets
+  verbs:
+  - get
+  - list
+  - create
+  - delete
+  - patch
+  - watch
+  - update
+
+- apiGroups:
   - valkey.andino.io
   resources:
   - valkeys

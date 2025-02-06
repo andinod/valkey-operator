@@ -1,0 +1,9 @@
+apiVersion: valkey.andino.io/v1alpha1
+kind: Valkey
+metadata:
+  name: valkey-standalone
+spec:
+  architecture: standalone
+  auth:
+    enabled: true
+    password: test_pwd
