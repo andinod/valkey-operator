@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "valkey-operator.fullname" . }}-valkey-editor-role
+  labels:
+  {{- include "valkey-operator.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - valkey.andino.io
+  resources:
+  - valkeys
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - valkey.andino.io
+  resources:
+  - valkeys/status
+  verbs:
+  - get
