@@ -23,7 +23,7 @@ This Valkey Operator it is a Helm Operator based on the Bitnami Valkey Helm Char
 Deploy using Helm (version 3.8.0 or later). In the following link you will get the proper instructions [Helm Installation](https://andinod.github.io/valkey-operator/).
 
 ```bash
-helm upgrade --install my-valkey-operator https://andinod.github.io/valkey-operator/charts/valkey-operator
+helm upgrade --install valkey-operator https://andinod.github.io/valkey-operator/charts/valkey-operator -n valkey-operator-system --create-namespace
 ```
 
 ### Using Makefile and Development
