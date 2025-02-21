@@ -15,8 +15,8 @@ andinod` to see the charts.
 
 To install the valkey-operator chart:
 
-    helm install my-valkey-operator andinod/valkey-operator
+    helm upgrade --install valkey-operator andinod/valkey-operator -n valkey-operator-system --create-namespace
 
 To uninstall the chart:
 
-    helm uninstall my-valkey-operator
+    helm uninstall valkey-operator -n valkey-operator-system
