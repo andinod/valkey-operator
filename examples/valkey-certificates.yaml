@@ -1,0 +1,92 @@
+---
+# Creating a Cluster Issuer
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: selfsigned-issuer
+  namespace: cert-manager
+spec:
+  selfSigned: {}
+---
+# Creating CA Cert 
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: valkey-tls-ca
+  namespace: cert-manager
+spec:
+  isCA: true
+  commonName: valkey
+  secretName: valkey-tls-ca-cert
+  privateKey: 
+    algorithm: ECDSA
+    size: 256
+  issuerRef:
+    name: selfsigned-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
+---
+# Signing the Certificate by the Issuer
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: valkey-tls-ca
+  namespace: cert-manager
+spec:
+  ca:
+    secretName: valkey-tls-ca-cert
+---
+# Creating certificate self signed for standalone
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: valkey-single-tls  # this name should match the one appeared in kustomizeconfig.yaml
+  namespace: default
+spec:
+  duration: 87660h # 10 years
+  renewBefore: 360h # 15d
+  dnsNames:
+    - valkey-standalone-ssl-primary.svc.cluster.local
+    - valkey-standalone-ssl-headless.svc.cluster.local
+    - valkey-standalone-ssl-primary.svc
+    - valkey-standalone-ssl-headless.svc
+    - valkey-standalone-ssl-primary-0
+  issuerRef:
+    kind: ClusterIssuer
+    name: valkey-tls-ca
+    group: cert-manager.io
+  secretName: valkey-single-tls-cert
+---
+# Creating certificate self signed for replication and sentinel
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: valkey-sentinel-replication-tls  # this name should match the one appeared in kustomizeconfig.yaml
+  namespace: default
+spec:
+  duration: 87660h # 10 years
+  renewBefore: 360h # 15d
+  dnsNames:
+    - valkey-sentinel-ssl-node-0
+    - valkey-sentinel-ssl-node-1
+    - valkey-sentinel-ssl-node-2
+    - valkey-replica-ssl-primary-0
+    - valkey-replica-ssl-replicas-0 
+    - valkey-replica-ssl-replicas-1 
+    - valkey-replica-ssl-replicas-2 
+    - valkey-sentinel-ssl.svc
+    - valkey-sentinel-ssl-headless.svc
+    - valkey-replica-ssl-headless.svc
+    - valkey-replica-ssl-primary.svc
+    - valkey-replica-ssl-replicas.svc
+    - valkey-sentinel-ssl.svc.cluster.local
+    - valkey-sentinel-ssl-headless.svc.cluster.local
+    - valkey-replica-ssl-headless.svc.cluster.local
+    - valkey-replica-ssl-primary.svc.cluster.local
+    - valkey-replica-ssl-replicas.svc.cluster.local
+  issuerRef:
+    kind: ClusterIssuer
+    name: valkey-tls-ca
+    group: cert-manager.io
+  secretName: valkey-sentinel-replication-tls-cert
+
