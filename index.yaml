@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   valkey-operator:
   - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2025-02-21T09:32:11.792909205Z"
+    description: A Helm chart for Kubernetes
+    digest: 48d3b93a7311167fab5ab8a8f085242c53529be8055cf9f844ef6f4fbfddf826
+    name: valkey-operator
+    type: application
+    urls:
+    - https://github.com/andinod/valkey-operator/releases/download/valkey-operator-0.1.1/valkey-operator-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: 0.1.0
     created: "2025-02-21T08:39:03.104688731Z"
     description: A Helm chart for Kubernetes
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://github.com/andinod/valkey-operator/releases/download/valkey-operator-0.1.0/valkey-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-21T08:39:03.104698258Z"
+generated: "2025-02-21T09:32:11.792918081Z"
