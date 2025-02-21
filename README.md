@@ -1,7 +1,7 @@
 # Valkey Operator
 
--[License](https://www.apache.org/licenses/LICENSE-2.0.txt)
--[Release](https://github.com/andinod/valkey-operator/releases)
+- [License](https://www.apache.org/licenses/LICENSE-2.0.txt)
+- [Release](https://github.com/andinod/valkey-operator/releases)
 
 ## Introduction
 
@@ -55,11 +55,11 @@ Contributions are warmly welcomed. Feel free to submit issues or pull requests.
 
 As an additional information is added the list of links for documentation and instructions:
 
--[Step-by-Step Guide to Hosting Your Own Helm Chart Registry on GitHub Pages](https://medium.com/@blackhorseya/step-by-step-guide-to-hosting-your-own-helm-chart-registry-on-github-pages-c37809a1d93f)
--[Publish a helm chart for your Kubernetes operator](https://medium.com/@therealak12/publish-a-helm-chart-for-your-kubernetes-operator-ffeb9f998e5a)
--[Chart Releaser Action to Automate GitHub Page Charts](https://helm.sh/docs/howto/chart_releaser_action/)
--[A journey of a Helm operator to OperatorHub.io and back again](https://labs.consol.de/development/2021/05/03/helm_based_operator.html)
--[Helm Operator Tutorial](https://sdk.operatorframework.io/docs/building-operators/helm/tutorial/)
+- [Step-by-Step Guide to Hosting Your Own Helm Chart Registry on GitHub Pages](https://medium.com/@blackhorseya/step-by-step-guide-to-hosting-your-own-helm-chart-registry-on-github-pages-c37809a1d93f)
+- [Publish a helm chart for your Kubernetes operator](https://medium.com/@therealak12/publish-a-helm-chart-for-your-kubernetes-operator-ffeb9f998e5a)
+- [Chart Releaser Action to Automate GitHub Page Charts](https://helm.sh/docs/howto/chart_releaser_action/)
+- [A journey of a Helm operator to OperatorHub.io and back again](https://labs.consol.de/development/2021/05/03/helm_based_operator.html)
+- [Helm Operator Tutorial](https://sdk.operatorframework.io/docs/building-operators/helm/tutorial/)
 
 ## License
 
