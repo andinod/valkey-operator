@@ -1,9 +1,0 @@
-apiVersion: valkey.andino.io/v1alpha1
-kind: Valkey
-metadata:
-  name: valkey-replica
-spec:
-  architecture: replication
-  auth:
-    enabled: true
-    password: test_pwd
