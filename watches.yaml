@@ -3,4 +3,8 @@
   version: v1alpha1
   kind: Valkey
   chart: helm-charts/valkey
+- group: valkey.andino.io
+  version: v1alpha1
+  kind: ValkeyBackup
+  chart: helm-charts/valkeybackup
 # +kubebuilder:scaffold:watch

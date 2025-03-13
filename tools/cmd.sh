@@ -1,9 +1,12 @@
 # For the creation
 operator-sdk init --plugins helm --group=valkey --domain=andino.io --project-name=valkey --version v1alpha1 --kind Valkey
 
+# Adding new CRD for backup
+operator-sdk create api --group valkey --version v1alpha1 --kind ValkeyBackup
+
 # After file customization and edition, previously login: docker login quay.io
 # After creation remember to make the repo public
-make docker-build docker-push IMG=quay.io/$USERNAME/valkey-operator:v0.0.1
+make docker-build docker-push IMG=quay.io/$USERNAME/valkey-operator:v0.0.3
 
 
 # To deploy the operator

@@ -1,0 +1,27 @@
+# permissions for end users to edit valkeybackups.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: valkey
+    app.kubernetes.io/managed-by: kustomize
+  name: valkeybackup-editor-role
+rules:
+- apiGroups:
+  - valkey.andino.io
+  resources:
+  - valkeybackups
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - valkey.andino.io
+  resources:
+  - valkeybackups/status
+  verbs:
+  - get

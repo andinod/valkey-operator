@@ -3,4 +3,5 @@
 # It should be run by config/default
 resources:
 - bases/valkey.andino.io_valkeys.yaml
+- bases/valkey.andino.io_valkeybackups.yaml
 # +kubebuilder:scaffold:crdkustomizeresource

@@ -17,4 +17,11 @@ resources:
   group: valkey
   kind: Valkey
   version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  domain: andino.io
+  group: valkey
+  kind: ValkeyBackup
+  version: v1alpha1
 version: "3"

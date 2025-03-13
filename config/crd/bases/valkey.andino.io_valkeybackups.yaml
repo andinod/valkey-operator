@@ -1,0 +1,128 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: valkeybackups.valkey.andino.io
+spec:
+  group: valkey.andino.io
+  names:
+    kind: ValkeyBackup
+    listKind: ValkeyBackupList
+    plural: valkeybackups
+    singular: valkeybackup
+  scope: Namespaced
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: ValkeyBackup is the Schema for the valkeybackups API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: Spec defines the desired state of ValkeyBackup
+            type: object
+            required:
+              - s3
+              - restic_password
+            properties:
+              namespace: 
+                type: string
+                description: The namespace where the backup will be created.
+              image:
+                type: object
+                description: Configuration for the container image used for the backup.
+                properties:
+                  repository: 
+                    type: string
+                    description: The image repository.
+                  tag: 
+                    type: string
+                    description: The image tag.
+                  debug: 
+                    type: boolean
+                    description: Enable debug mode for the image.
+                    default: false
+                required:
+                  - repository
+                  - tag
+              cronjob:
+                type: object
+                description: Configuration for the cronjob that manages the backup schedule.
+                properties:
+                  enabled: 
+                    type: boolean
+                    description: Enable or disable the cronjob.
+                    default: false
+                  schedule: 
+                    type: string
+                    description: The cron schedule for the backup job.
+                    pattern: '^(@(annually|yearly|monthly|weekly|daily|hourly|reboot))|(@every (\d+(ns|us|µs|ms|s|m|h))+)|((\d+|\*) (\d+|\*) (\d+|\*) (\d+|\*) (\d+|\*))$'
+              valkey:
+                type: object
+                description: Configuration for the Valkey instance.
+                properties:
+                  use_tls: 
+                    type: string
+                    description: Enable TLS for Valkey connections.
+                    default: false
+                  certificates_secret: 
+                    type: string
+                    description: The name of the secret containing TLS certificates
+              restic_password:
+                type: string
+                description: The password for the Restic repository.
+              s3:
+                type: object
+                description: Configuration for the S3 storage backend.
+                required:
+                  - access_key
+                  - secret_key
+                  - bucket_name
+                  - region
+                  - host
+                  - port
+                  - use_ssl
+                properties:
+                  access_key:
+                    type: string
+                    description: The access key for the S3 bucket.
+                  secret_key:
+                    type: string
+                    description: The secret key for the S3 bucket
+                  bucket_name:
+                    type: string
+                    description: The name of the S3 bucket.
+                  region:
+                    type: string
+                    description: The region of the S3 bucket.
+                  host:
+                    type: string
+                    description: The host address of the S3 service.
+                  port:
+                    type: integer
+                    description: The port of the S3 service.
+                    default: 443
+                  use_ssl: 
+                    type: boolean
+                    description: Enable SSL for the S3 connection.
+                    default: true
+          status:
+            description: Status defines the observed state of ValkeyBackup
+            type: object
+            x-kubernetes-preserve-unknown-fields: true
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
