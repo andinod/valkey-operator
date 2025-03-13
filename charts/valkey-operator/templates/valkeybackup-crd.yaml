@@ -114,7 +114,7 @@ spec:
                   use_tls:
                     default: false
                     description: Enable TLS for Valkey connections.
-                    type: string
+                    type: boolean
                 type: object
             required:
             - s3

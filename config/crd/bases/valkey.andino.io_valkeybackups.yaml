@@ -73,7 +73,7 @@ spec:
                 description: Configuration for the Valkey instance.
                 properties:
                   use_tls: 
-                    type: string
+                    type: boolean
                     description: Enable TLS for Valkey connections.
                     default: false
                   certificates_secret: 
