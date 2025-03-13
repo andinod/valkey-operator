@@ -17,3 +17,7 @@ make deploy IMG=quay.io/$USERNAME/valkey-operator:v0.0.4
 
 # To undeploy
 make undeploy IMG=quay.io/$USERNAME/valkey-operator:v0.0.4
+
+
+# To get latest versions from helm
+helm search repo andinod/valkey --versions
