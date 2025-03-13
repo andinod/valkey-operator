@@ -61,12 +61,12 @@ spec:
         - name: JOB_S3_ACCESS_KEY
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-s3-credentials
+              name: {{ .Values.s3.access_credentials_secret | quote }}
               key: access_key
         - name: JOB_S3_SECRET_KEY
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-s3-credentials
+              name: {{ .Values.s3.access_credentials_secret | quote }}
               key: secret_access_key
 
       restartPolicy: Never

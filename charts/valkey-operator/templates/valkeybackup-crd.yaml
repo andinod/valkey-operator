@@ -73,8 +73,9 @@ spec:
               s3:
                 description: Configuration for the S3 storage backend.
                 properties:
-                  access_key:
-                    description: The access key for the S3 bucket.
+                  access_credentials_secret:
+                    description: The name of the secret with the access_key and secret_access_key
+                      for S3
                     type: string
                   bucket_name:
                     description: The name of the S3 bucket.
@@ -89,16 +90,12 @@ spec:
                   region:
                     description: The region of the S3 bucket.
                     type: string
-                  secret_key:
-                    description: The secret key for the S3 bucket
-                    type: string
                   use_ssl:
                     default: true
                     description: Enable SSL for the S3 connection.
                     type: boolean
                 required:
-                - access_key
-                - secret_key
+                - access_credentials_secret
                 - bucket_name
                 - region
                 - host
