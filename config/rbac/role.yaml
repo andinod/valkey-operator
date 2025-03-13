@@ -27,18 +27,13 @@ rules:
   - events
   verbs:
   - create
-# We need to manage Helm roles
+# We need to manage Helm roles and jobs
 - apiGroups:
   - "rbac.authorization.k8s.io"
+  - "batch"
   resources:
   - roles
   - rolebindings
-  verbs:
-  - "*"
-# We need to manaje Jobs and Cronjobs
-- apiGroups:
-  - "batch/v1"
-  resources:
   - jobs
   - cronjobs
   verbs:

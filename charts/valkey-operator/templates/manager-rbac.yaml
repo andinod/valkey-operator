@@ -25,14 +25,10 @@ rules:
   - create
 - apiGroups:
   - rbac.authorization.k8s.io
+  - batch
   resources:
   - roles
   - rolebindings
-  verbs:
-  - '*'
-- apiGroups:
-  - batch/v1
-  resources:
   - jobs
   - cronjobs
   verbs:
