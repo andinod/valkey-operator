@@ -35,7 +35,6 @@ spec:
             required:
               - valkey_instance_name
               - s3
-              - restic_password
             properties:
               valkey_instance_name:
                 type: string
