@@ -113,7 +113,11 @@ spec:
                     description: Enable TLS for Valkey connections.
                     type: boolean
                 type: object
+              valkey_instance_name:
+                description: The name of the source valkey instance to make a backup
+                type: string
             required:
+            - valkey_instance_name
             - s3
             - restic_password
             type: object
