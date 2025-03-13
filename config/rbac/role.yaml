@@ -35,6 +35,14 @@ rules:
   - rolebindings
   verbs:
   - "*"
+# We need to manaje Jobs and Cronjobs
+- apiGroups:
+  - "batch/v1"
+  resources:
+  - jobs
+  - cronjobs
+  verbs:
+  - "*"
 
 ##
 ## Rules for valkey.andino.io/v1alpha1, Kind: Valkey
