@@ -27,6 +27,14 @@ rules:
   - events
   verbs:
   - create
+# We need to manage Helm roles
+- apiGroups:
+  - "rbac.authorization.k8s.io"
+  resources:
+  - roles
+  - rolebindings
+  verbs:
+  - "*"
 
 ##
 ## Rules for valkey.andino.io/v1alpha1, Kind: Valkey

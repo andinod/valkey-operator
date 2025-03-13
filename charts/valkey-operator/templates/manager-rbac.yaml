@@ -24,6 +24,13 @@ rules:
   verbs:
   - create
 - apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - roles
+  - rolebindings
+  verbs:
+  - '*'
+- apiGroups:
   - policy
   resources:
   - poddisruptionbudgets
