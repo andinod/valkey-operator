@@ -105,12 +105,13 @@ spec:
               valkey:
                 description: Configuration for the Valkey instance.
                 properties:
+                  architecture:
+                    default: standalone
+                    description: Describe the type of valkey where the instance will
+                      be connected
+                    type: string
                   certificates_secret:
                     description: The name of the secret containing TLS certificates
-                    type: string
-                  type:
-                    default: standalone
-                    description: Describe the type of valkey will be connected
                     type: string
                   use_tls:
                     default: false

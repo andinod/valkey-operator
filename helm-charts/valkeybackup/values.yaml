@@ -32,7 +32,7 @@ cronjob:
 
 valkey:
   use_tls: "false"
-  type: "standalone" # it can be standalone, replication or sentinel
+  architecture: "standalone" # it can be standalone, replication or sentinel
   # The secret certificate has to contain the following data: ca.crt, tls.crt and tls.key
   #certificates_secret: secret_name_with_certificates
 

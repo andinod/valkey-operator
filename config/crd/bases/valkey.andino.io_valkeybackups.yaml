@@ -79,9 +79,9 @@ spec:
                     type: boolean
                     description: Enable TLS for Valkey connections.
                     default: false
-                  type:
+                  architecture:
                     type: string
-                    description: Describe the type of valkey will be connected
+                    description: Describe the type of valkey where the instance will be connected
                     default: "standalone"
                   certificates_secret: 
                     type: string
