@@ -62,7 +62,11 @@ spec:
               cronjob:
                 type: object
                 description: Configuration for the cronjob that manages the backup schedule.
-                properties:
+                properties: 
+                  sleep_before_exec:
+                    type: integer
+                    description: Defines the amount of seconds to wait before the execution starts
+                    default: 0
                   enabled: 
                     type: boolean
                     description: Enable or disable the cronjob.

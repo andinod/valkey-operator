@@ -46,6 +46,11 @@ spec:
                       (\d+(ns|us|µs|ms|s|m|h))+)|((\d+|\*) (\d+|\*) (\d+|\*) (\d+|\*)
                       (\d+|\*))$
                     type: string
+                  sleep_before_exec:
+                    default: 0
+                    description: Defines the amount of seconds to wait before the execution
+                      starts
+                    type: integer
                 type: object
               image:
                 description: Configuration for the container image used for the backup.

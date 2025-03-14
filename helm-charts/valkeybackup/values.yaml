@@ -18,6 +18,8 @@ image:
 cronjob:
   # if enabled you can customize the schedule time, if disabled then it will run just a job (used for testing purposes)
   enabled: false
+  # if amount of time in seconds to wait before it starts the execution
+  #sleep_before_exec: 0
   # ┌───────────── minute (0 - 59)
   # │ ┌───────────── hour (0 - 23)
   # │ │ ┌───────────── day of the month (1 - 31)

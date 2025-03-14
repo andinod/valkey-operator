@@ -9,7 +9,7 @@ spec:
   template:
     spec:
       serviceAccountName: {{ .Release.Name }}-internal-kubectl
-      {{- if eq .Values.valkey.use_tls "true" }}
+      {{- if .Values.valkey.use_tls }}
       volumes:
         - name: certs-vol
           secret:
@@ -21,9 +21,12 @@ spec:
         command: ["bash", "-c"]
         args:
         - |
+          echo "Sleep before execution:"
+          echo "Sleeping {{ .Values.cronjob.sleep_before_exec | default 0 }} secs"
+          sleep {{ .Values.cronjob.sleep_before_exec | default 0 }}
+          echo
           /backup/backup.bash
-          #sleep 3600
-        {{- if eq .Values.valkey.use_tls "true" }}
+        {{- if .Values.valkey.use_tls }}
         volumeMounts:
           - mountPath: "/certs"
             name: certs-vol
