@@ -108,10 +108,14 @@ spec:
                   certificates_secret:
                     description: The name of the secret containing TLS certificates
                     type: string
-                  use_tls:
-                    default: "false"
-                    description: Enable TLS for Valkey connections.
+                  type:
+                    default: standalone
+                    description: Describe the type of valkey will be connected
                     type: string
+                  use_tls:
+                    default: false
+                    description: Enable TLS for Valkey connections.
+                    type: boolean
                 type: object
               valkey_instance_name:
                 description: The name of the source valkey instance to make a backup

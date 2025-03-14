@@ -61,6 +61,8 @@ spec:
                   key: password
             - name: VALKEY_USE_TLS
               value: {{ .Values.valkey.use_tls | default "false"  | quote }}
+            - name: VALKEY_TYPE
+              value: {{ .Values.valkey.type | default "standalone" | quote }}
             - name: JOB_BUCKET_NAME
               value: {{ .Values.s3.bucket_name |  quote }}
             - name: JOB_S3_REGION
