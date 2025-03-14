@@ -60,7 +60,7 @@ spec:
             - name: RESTIC_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Release.Name }}-restic-password
+                  name: {{ .Values.restic_password }}
                   key: password
             - name: VALKEY_USE_TLS
               value: {{ .Values.valkey.use_tls | default "false"  | quote }}

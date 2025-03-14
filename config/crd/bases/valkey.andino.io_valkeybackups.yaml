@@ -35,6 +35,7 @@ spec:
             required:
               - valkey_instance_name
               - s3
+              - restic_password
             properties:
               valkey_instance_name:
                 type: string
@@ -92,7 +93,7 @@ spec:
                     description: The name of the secret containing TLS certificates
               restic_password:
                 type: string
-                description: The password for the Restic repository.
+                description: Secret with the password for the Restic repository.
               s3:
                 type: object
                 description: Configuration for the S3 storage backend.

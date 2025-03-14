@@ -73,7 +73,7 @@ spec:
                 description: The namespace where the backup will be created.
                 type: string
               restic_password:
-                description: The password for the Restic repository.
+                description: Secret with the password for the Restic repository.
                 type: string
               s3:
                 description: Configuration for the S3 storage backend.
@@ -129,6 +129,7 @@ spec:
             required:
             - valkey_instance_name
             - s3
+            - restic_password
             type: object
           status:
             description: Status defines the observed state of ValkeyBackup

@@ -39,8 +39,8 @@ valkey:
   #certificates_secret: secret_name_with_certificates
 
 # Password of the restic which is required,
-# if not provided will be generated
-#restic_password:
+# This must to be saved in a secret with the key word: password
+restic_password: my-restic-secret
 
 # Required S3 connection information
 # 
