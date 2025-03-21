@@ -9,6 +9,7 @@
 # * * * * *
 {{/* Generate the valkey cronjob if activated */}}
 {{- define "valkeybackup.cronjob" }}
+{{- if eq .Values.restore.enabled false }}
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -88,4 +89,5 @@ spec:
                   key: secret_access_key
 
           restartPolicy: Never
+{{- end }}
 {{- end }}

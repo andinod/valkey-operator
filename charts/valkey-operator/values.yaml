@@ -14,7 +14,7 @@ controllerManager:
         - ALL
     image:
       repository: quay.io/david_andino/valkey-operator
-      tag: v0.0.16
+      tag: v0.0.17
     resources:
       limits:
         cpu: 500m

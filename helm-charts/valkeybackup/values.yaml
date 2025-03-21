@@ -53,3 +53,16 @@ restic_password: my-restic-secret
 #  host:
 #  port:
 #  use_ssl: # true or false
+#
+# Required for restore
+# The restore steps has priority over the backups. 
+# If the restore is enabled, no backup will be performed only the restore.
+# Use it carefully.
+# By design, the restore is only working as a normal JOB, so the cronjob should be set to enabled: false
+# Test it first before doing any regular operation with it.
+restore:
+  enabled: false
+  #show_available_backups: false # it can be chosen from: true or false, no restore will be done, only information displayed
+  #snapshot_id: # Provide this if known the snapshot id, if not it will be restored the last snapshot
+
+

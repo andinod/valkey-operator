@@ -125,6 +125,19 @@ spec:
                     type: boolean
                     description: Enable SSL for the S3 connection.
                     default: true
+              restore:
+                type: object
+                description: Configuration needed for the proper restore of a backup
+                properties:
+                  enabled:
+                    type: boolean
+                    description: Enable the restore. This will be executed as a job and the cronjob has to be set as false
+                  show_available_backups:
+                    type: string
+                    description: List all the backups availables to restore. Optional
+                  snapshot_id:
+                    type: string
+                    description: Provide this if known the snapshot id, if not it will be restored the last snapshot. Optional
           status:
             description: Status defines the observed state of ValkeyBackup
             type: object

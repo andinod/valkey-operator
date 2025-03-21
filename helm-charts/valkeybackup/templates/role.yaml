@@ -9,9 +9,11 @@ rules:
   - services
   - endpoints
   - pods
-  verbs: ["get", "list", "watch"]
+  - pods/exec
+  - persistentvolumeclaims
+  verbs: ["get", "list", "watch","create","delete"]
 - apiGroups: 
-  - "valkeys.valkey.andino.io"
+  - "valkey.andino.io"
   resources:
   - valkeys
-  verbs: ["get", "list", "watch"]
+  verbs: ["get", "list", "watch","delete","create","patch"]

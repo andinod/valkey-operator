@@ -75,6 +75,21 @@ spec:
               restic_password:
                 description: Secret with the password for the Restic repository.
                 type: string
+              restore:
+                description: Configuration needed for the proper restore of a backup
+                properties:
+                  enabled:
+                    description: Enable the restore. This will be executed as a job
+                      and the cronjob has to be set as false
+                    type: boolean
+                  show_available_backups:
+                    description: List all the backups availables to restore. Optional
+                    type: string
+                  snapshot_id:
+                    description: Provide this if known the snapshot id, if not it will
+                      be restored the last snapshot. Optional
+                    type: string
+                type: object
               s3:
                 description: Configuration for the S3 storage backend.
                 properties:

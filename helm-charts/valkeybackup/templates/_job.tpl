@@ -74,5 +74,19 @@ spec:
               name: {{ .Values.s3.access_credentials_secret | quote }}
               key: secret_access_key
 
+        - name: VALKEY_RESTORE
+          value: {{ .Values.restore.enabled | default "false" | quote }}
+
+	{{- if .Values.restore.enabled }}
+	{{- if .Values.restore.show_available_backups }}
+        - name: VALKEY_BACKUP_AVAILABLE_LIST
+          value: {{ .Values.restore.show_available_backups | default "false" | quote }}
+	{{- end }}
+	{{- if .Values.restore.snapshot_id }}
+        - name: VALKEY_RESTORE_SNAPSHOT_ID
+          value: {{ .Values.restore.snapshot_id | quote }}
+        {{- end }}
+        {{- end }}
+
       restartPolicy: Never
 {{- end }}
