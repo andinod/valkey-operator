@@ -1,25 +1,25 @@
-apiVersion: valkey.andino.io/v1alpha1
-kind: ValkeyBackup
-metadata:
-  name: valkey-standalone-restore
-spec:
-  valkey_instance_name: valkey-standalone
-  restic_password: valkey-restic-password
-  valkey:
-    use_tls: false
-  cronjob:
-    enabled: false
-  s3:
-    access_credentials_secret: "s3-credentials-valkeybackup"
-    bucket_name: "example-bucket-name"
-    region: "my-example-region"
-    host: "s3.example.host"
-    port: 443
-    use_ssl: true # true or false
-  restore:
-    enabled: true
-    #show_available_backups: true
-    #snapshot_id:
+#apiVersion: valkey.andino.io/v1alpha1
+#kind: ValkeyBackup
+#metadata:
+#  name: valkey-standalone-restore
+#spec:
+#  valkey_instance_name: valkey-standalone
+#  restic_password: valkey-restic-password
+#  valkey:
+#    use_tls: false
+#  cronjob:
+#    enabled: false
+#  s3:
+#    access_credentials_secret: "s3-credentials-valkeybackup"
+#    bucket_name: "example-bucket-name"
+#    region: "my-example-region"
+#    host: "s3.example.host"
+#    port: 443
+#    use_ssl: true # true or false
+#  restore:
+#    enabled: true
+#    #show_available_backups: true
+#    #snapshot_id:
 #---
 #apiVersion: valkey.andino.io/v1alpha1
 #kind: ValkeyBackup
@@ -45,30 +45,30 @@ spec:
 #    #show_available_backups: true
 #    #snapshot_id:
 #---
-#apiVersion: valkey.andino.io/v1alpha1
-#kind: ValkeyBackup
-#metadata:
-#  name: valkey-sentinel-ssl-restore
-#spec:
-#  valkey_instance_name: valkey-sentinel-ssl
-#  restic_password: valkey-restic-password
-#  cronjob:
-#    enabled: false
-#  valkey:
-#    use_tls: true
-#    architecture: sentinel
-#    certificates_secret: valkey-sentinel-replication-tls-cert
-#  s3:
-#    access_credentials_secret: "s3-credentials-valkeybackup"
-#    bucket_name: "example-bucket-name"
-#    region: "my-example-region"
-#    host: "s3.example.host"
-#    port: 443
-#    use_ssl: true # true or false
-#  restore:
-#    enabled: true
-#    #show_available_backups: true
-#    #snapshot_id:
+apiVersion: valkey.andino.io/v1alpha1
+kind: ValkeyBackup
+metadata:
+  name: valkey-sentinel-ssl-restore
+spec:
+  valkey_instance_name: valkey-sentinel-ssl
+  restic_password: valkey-restic-password
+  cronjob:
+    enabled: false
+  valkey:
+    use_tls: true
+    architecture: sentinel
+    certificates_secret: valkey-sentinel-replication-tls-cert
+  s3:
+    access_credentials_secret: "s3-credentials-valkeybackup"
+    bucket_name: "example-bucket-name"
+    region: "my-example-region"
+    host: "s3.example.host"
+    port: 443
+    use_ssl: true # true or false
+  restore:
+    enabled: true
+    show_available_backups: true
+    #snapshot_id:
 #---
 #apiVersion: valkey.andino.io/v1alpha1
 #kind: ValkeyBackup

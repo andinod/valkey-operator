@@ -1,0 +1,12 @@
+#
+# container access:
+kubectl exec -it pod/valkey-sentinel-ssl-node-0 -- /bin/bash
+
+# Who is the master?
+
+VALKEY_INSTANCE=valkey-sentinel-ssl
+VALKEY_INSTANCE_NS=default
+valkey-cli -h ${VALKEY_INSTANCE}.${VALKEY_INSTANCE_NS}.svc  -p 26379  --tls --cacert /opt/bitnami/valkey/certs/ca.crt --cert /opt/bitnami/valkey/certs/tls.crt --key /opt/bitnami/valkey/certs/tls.key -a test_pwd  sentinel primary myprimary | grep ${VALKEY_INSTANCE}
+
+# query to the master
+valkey-cli -h valkey-sentinel-ssl-node-2.valkey-sentinel-ssl-headless.default.svc.cluster.local -p 6379  --tls --cacert /opt/bitnami/valkey/certs/ca.crt --cert /opt/bitnami/valkey/certs/tls.crt --key /opt/bitnami/valkey/certs/tls.key -a test_pwd config get appendonly

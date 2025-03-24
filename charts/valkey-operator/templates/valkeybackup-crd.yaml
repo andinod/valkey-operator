@@ -84,7 +84,7 @@ spec:
                     type: boolean
                   show_available_backups:
                     description: List all the backups availables to restore. Optional
-                    type: string
+                    type: boolean
                   snapshot_id:
                     description: Provide this if known the snapshot id, if not it will
                       be restored the last snapshot. Optional

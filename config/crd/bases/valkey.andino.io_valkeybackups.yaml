@@ -133,7 +133,7 @@ spec:
                     type: boolean
                     description: Enable the restore. This will be executed as a job and the cronjob has to be set as false
                   show_available_backups:
-                    type: string
+                    type: boolean
                     description: List all the backups availables to restore. Optional
                   snapshot_id:
                     type: string
